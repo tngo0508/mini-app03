@@ -8,13 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import edu.fullerton.cpsc411.mini_app03.R.string.result
 import kotlinx.android.synthetic.main.fragment_simple.*
 import kotlinx.android.synthetic.main.fragment_simple.view.*
 import java.util.Locale.US
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val NET_WORK = "net_work"
 private const val FILE_SIZE = "file_size"
 private const val RESULT = "result"
@@ -30,18 +29,19 @@ private const val RESULT = "result"
  */
 class SimpleFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var netSpeed: Double = 0.0
-    private var fileSize: Double = 0.0
-    private var result: String? = null
+//    private var netSpeed: Double = 0.0
+//    private var fileSize: Double = 0.0
+//    private var result: String? = null
 //    private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            it.putDouble(NET_WORK, netSpeed)
-            it.putDouble(FILE_SIZE, fileSize)
-            it.putString(RESULT, result)
-        }
+//        arguments?.let {
+//            it.putDouble(NET_WORK, netSpeed)
+//            it.putDouble(FILE_SIZE, fileSize)
+//            it.putString(RESULT, result)
+//        }
+        retainInstance = true
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -66,22 +66,22 @@ class SimpleFragment : Fragment() {
 
                 if (notEmpty(fileSizeInput) and notEmpty(networkSpeedInput)) {
                     val speed = java.lang.Double.valueOf(networkSpeedInput.text.toString())
-                    netSpeed = speed
+//                    netSpeed = speed
                     val size = java.lang.Double.valueOf(fileSizeInput.text.toString())
-                    fileSize = size
+//                    fileSize = size
 
                     if (size == 0.0) {
                         resultView.text = getString(R.string.invalid_input)
-                        result = resultView.text.toString()
+//                        result = resultView.text.toString()
                     } else {
                         val output = resultView.toOneDec(Result.cal(speed, size)) + " seconds"
                         resultView.text = output
-                        result = output
+//                        result = output
                     }
                 } else {
                     val time = resultView.toOneDec(Result.cal(100.0, 100.0)) + " seconds"
                     resultView.text = time
-                    result = time
+//                    result = time
                 }
             }
 
@@ -110,7 +110,6 @@ class SimpleFragment : Fragment() {
          * @param result time in seconds
          * @return A new instance of fragment SimpleFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(speed: Double, size: Double, result: Double) =
                 SimpleFragment().apply {
