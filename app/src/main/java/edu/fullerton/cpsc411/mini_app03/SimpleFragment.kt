@@ -1,15 +1,15 @@
 package edu.fullerton.cpsc411.mini_app03
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+//import android.support.v4.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import edu.fullerton.cpsc411.mini_app03.R.string.result
-import kotlinx.android.synthetic.main.fragment_simple.*
+import androidx.fragment.app.*
 import kotlinx.android.synthetic.main.fragment_simple.view.*
 import java.util.Locale.US
 
@@ -74,12 +74,12 @@ class SimpleFragment : Fragment() {
                         resultView.text = getString(R.string.invalid_input)
 //                        result = resultView.text.toString()
                     } else {
-                        val output = resultView.toOneDec(Result.cal(speed, size)) + " seconds"
+                        val output = resultView.toOneDec(resultView.cal(speed, size)) + " seconds"
                         resultView.text = output
 //                        result = output
                     }
                 } else {
-                    val time = resultView.toOneDec(Result.cal(100.0, 100.0)) + " seconds"
+                    val time = resultView.toOneDec(resultView.cal(100.0, 100.0)) + " seconds"
                     resultView.text = time
 //                    result = time
                 }
