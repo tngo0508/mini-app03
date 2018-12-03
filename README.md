@@ -1,14 +1,15 @@
 # CPSC 411- Mobile Device Application Development
-# Fall 2018 - Mini-App 2, due October 18
+# Fall 2018 - Mini-App 3, due November 29
 ## Introduction
-Convert your code for [Mini-App 1](https://github.com/tngo0508/mini-app01) to Kotlin.
-Begin by using Code > Convert Java File to Kotlin File on each Java class in your project.
-## Kotlin Fixes
- + Convert any var declarations to val
- + Eliminate nullable types (e.g. String?)
- + When possible, take advantage of type inference by eliminating type declarations
- + A larger label below the two fields should be used to show the computed result.
-## Kotlin Android Features
- + Import your layout from kotlinx.android.synthetic… and remove calls to findViewById()
- + Use an [object](https://kotlinlang.org/docs/reference/object-declarations.html) to implement the TextWatcher interface
- + Move some of the code from your activity into an appropriate TextView or EditText extension function
+In this project, I modify the code for [Mini-App 2](https://github.com/tngo0508/mini-app02) to use 
+fragments and take advantage of the [Android KTX](https://developer.android.com/kotlin/ktx) library.
+## Fragments
+Convert the UI to use a [fragment](https://developer.android.com/guide/components/fragments), 
+and modify the activity to host the fragment dynamically using [supportFragmentManager](https://developer.android.com/reference/android/support/v4/app/FragmentManager).
+## Handling Configuration Changes
+Update the application to [save the instance state](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) 
+of widgets when undergoing a configuration change such as rotation.
+## Android KTX
++ Add [Android KTX](https://developer.android.com/kotlin/ktx) to your build.gradle dependencies and 
+modify the activity to use the [FragmentManager.transaction](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary#extension-functions-summary) extension function.
++ Note that in order to add all of the required KTX packages successfully, need to [migrate to AndroidX](https://developer.android.com/jetpack/androidx/migrate).
