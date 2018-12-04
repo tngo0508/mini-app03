@@ -13,3 +13,5 @@ of widgets when undergoing a configuration change such as rotation.
 + Add [Android KTX](https://developer.android.com/kotlin/ktx) to your build.gradle dependencies and 
 modify the activity to use the [FragmentManager.transaction](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary#extension-functions-summary) extension function.
 + Note that in order to add all of the required KTX packages successfully, need to [migrate to AndroidX](https://developer.android.com/jetpack/androidx/migrate).
+## Acknowledgement
+-   **Professor Kenytt Avery** - _kavery@fullerton.edu_ - California State University, Fullerton
